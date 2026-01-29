@@ -1,26 +1,16 @@
 {
-  "name": "demoblaze-playwright-tests",
+  "name": "demoblaze-tests",
   "version": "1.0.0",
-  "description": "Functional UI automation for DemoBlaze using Playwright and TypeScript",
-  "private": true,
+  "description": "Playwright functional tests for DemoBlaze",
   "scripts": {
-    "test": "playwright test",
-    "install:browsers": "playwright install"
+    "test": "npx playwright test --reporter=list,html",
+    "test:headed": "npx playwright test --headed --reporter=list,html",
+    "test:debug": "npx playwright test --debug",
+    "report": "npx playwright show-report"
   },
+  "dependencies": {},
   "devDependencies": {
-    "@playwright/test": "^1.41.0",
-    "typescript": "^5.3.0"
-  },
-  "playwright": {
-    "testDir": "tests",
-    "timeout": 30000,
-    "use": {
-      "baseURL": "https://www.demoblaze.com",
-      "headless": true,
-      "viewport": { "width": 1280, "height": 720 },
-      "actionTimeout": 10000,
-      "screenshot": "only-on-failure",
-      "trace": "on-first-retry"
-    }
+    "@playwright/test": "^1.38.0",
+    "typescript": "^5.2.2"
   }
 }
