@@ -4,7 +4,6 @@ import { AuthPage } from '../pages/auth';
 import { ProductPage } from '../pages/product';
 import { CartPage } from '../pages/cart';
 
-
 const USER = {
   username: `user${Date.now()}`,
   password: 'Password123!'
@@ -19,35 +18,33 @@ test.describe('DemoBlaze – Core Functional Tests', () => {
     await home.open();
     await home.openSignUp();
     await auth.signUp(USER.username, USER.password);
+
+    // DemoBlaze shows an alert on successful signup
+    // page.once('dialog', async dialog => {
+    //   expect(dialog.message()).toContain('Sign up successful');
+    //   await dialog.accept();
+    // });
   });
 
-  /*test('TC02: User can log in and log out successfully', async ({ page }) => {
+  test('TC02: User can log in and log out successfully', async ({ page }) => {
     const home = new HomePage(page);
     const auth = new AuthPage(page);
 
     await home.open();
     await home.openLogin();
-    // Wait for login modal
-    await page.waitForSelector('#logInModal', { state: 'visible' });
     await auth.login(USER.username, USER.password);
     await auth.expectLoggedIn(USER.username);
     await auth.logout();
-    await expect(page.locator('#login2')).toBeVisible();
-  });*/
+  });
 
   test('TC03: User can browse products by category and view product details', async ({ page }) => {
     const home = new HomePage(page);
 
     await home.open();
     await home.selectPhonesCategory();
+    const productName = await home.openFirstProduct();
 
-    const firstProduct = page.locator('.card-title a').first();
-    await expect(firstProduct).toBeVisible();
-
-    const productName = await firstProduct.textContent();
-    await firstProduct.click();
-
-    // Wait for product detail to load
+    // Wait for product detail page to fully render
     await page.waitForSelector('.name');
     await expect(page.locator('.name')).toHaveText(productName || '');
     await expect(page.locator('.price-container')).toBeVisible();

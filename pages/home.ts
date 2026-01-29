@@ -18,15 +18,21 @@ export class HomePage {
 	}
 
 	async selectPhonesCategory() {
-		await this.page.click('a[onclick="byCat(1)"]');
-		await this.page.waitForSelector('.card-title a');
+		// Wait for category link to be visible before clicking
+		const phonesCategory = this.page.locator('a[onclick="byCat(\'phone\')"]');
+		await expect(phonesCategory).toBeVisible({ timeout: 10000 });
+		await phonesCategory.click();
+
+		// Wait for product cards to appear
+		const firstProduct = this.page.locator('.card-title a').first();
+		await expect(firstProduct).toBeVisible({ timeout: 10000 });
 	}
 
 	async openFirstProduct() {
-		const product = this.page.locator('.card-title a').first();
-		await expect(product).toBeVisible();
-		const name = await product.textContent();
-		await product.click();
+		const firstProduct = this.page.locator('.card-title a').first();
+		await expect(firstProduct).toBeVisible({ timeout: 10000 });
+		const name = await firstProduct.textContent();
+		await firstProduct.click();
 		return name;
 	}
 }

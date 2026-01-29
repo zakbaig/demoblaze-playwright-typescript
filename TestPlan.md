@@ -50,3 +50,12 @@ Up to five high-value functional test cases are implemented to cover:
 | TC03 | User can browse products by category and view product details |
 | TC04 | User can add a product to the cart and view persisted cart contents |
 | TC05 | User can complete a purchase successfully
+
+## Issues Encountered
+1. Signup not registering users – Alerts (Sign up successful) were not handled, so users weren’t actually created.
+2. Login failures / empty navbar username – Login failed when using nonexistent users or stale locators after page reload.
+
+These issues highlight the challenges and best practices when testing asynchronous UI behaviour:
+- Always verify that actions (signup, login) actually succeed before asserting downstream behavior.
+- Use proper locators to account for asynchronous DOM updates.
+- Re-query elements after page reloads to avoid stale references.
