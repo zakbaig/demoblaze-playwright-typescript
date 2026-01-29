@@ -1,7 +1,7 @@
 # Test Plan
 
 ## Objective
-Demonstrate a pragmatic functional testing approach for the DemoBlaze web application, including test prioritisation, functional test design, and the use of Playwright with TypeScript for automation.
+Demonstrate a pragmatic functional testing approach for the DemoBlaze web application, including test prioritisation, functional test design, and the use of Playwright with TypeScript for automation. While I have extensive experience with CypressJS, Playwright offers a very similar developer experience, with additional advantages such as multi-browser support (Chromium, Firefox, WebKit), native handling of page reloads, and robust features for asynchronous UI testing. TypeScript adds strong typing and better maintainability for the test suite, making Playwright + TypeScript an ideal choice for this project.
 
 ## Application Overview
 DemoBlaze is a demo e-commerce web application supporting:
