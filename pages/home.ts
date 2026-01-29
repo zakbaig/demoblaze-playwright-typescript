@@ -20,17 +20,17 @@ export class HomePage {
 	async selectPhonesCategory() {
 		// Wait for category link to be visible before clicking
 		const phonesCategory = this.page.locator('a[onclick="byCat(\'phone\')"]');
-		await expect(phonesCategory).toBeVisible({ timeout: 10000 });
+		await expect(phonesCategory).toBeVisible();
 		await phonesCategory.click();
 
 		// Wait for product cards to appear
 		const firstProduct = this.page.locator('.card-title a').first();
-		await expect(firstProduct).toBeVisible({ timeout: 10000 });
+		await expect(firstProduct).toBeVisible();
 	}
 
 	async openFirstProduct() {
 		const firstProduct = this.page.locator('.card-title a').first();
-		await expect(firstProduct).toBeVisible({ timeout: 10000 });
+		await expect(firstProduct).toBeVisible();
 		const name = await firstProduct.textContent();
 		await firstProduct.click();
 		return name;
