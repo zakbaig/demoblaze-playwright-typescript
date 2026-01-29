@@ -14,7 +14,6 @@ DemoBlaze is a demo e-commerce web application supporting:
 ## Scope
 In scope:
 - Functional testing of core user journeys
-- End to end validation of critical workflows
 
 Out of scope:
 - Performance, security, accessibility and visual testing
@@ -56,6 +55,6 @@ Up to five high-value functional test cases are implemented to cover:
 2. Login failures / empty navbar username – Login failed when using nonexistent users or stale locators after page reload.
 
 These issues highlight the challenges and best practices when testing asynchronous UI behaviour:
-- Always verify that actions (signup, login) actually succeed before asserting downstream behavior.
+- Always verify that actions (signup, login) actually succeed before asserting downstream behaviour.
 - Use proper locators to account for asynchronous DOM updates.
 - Re-query elements after page reloads to avoid stale references.
