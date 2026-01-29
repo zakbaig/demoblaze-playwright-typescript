@@ -21,9 +21,6 @@ export class AuthPage {
     const dialog = await dialogPromise;
     await expect(dialog.message()).toContain('Sign up successful');
     await dialog.accept();
-
-    // Wait a short time to allow the signup to process
-    // await this.page.waitForTimeout(500);
   }
 
   async login(username: string, password: string) {

@@ -18,12 +18,6 @@ test.describe('DemoBlaze – Core Functional Tests', () => {
     await home.open();
     await home.openSignUp();
     await auth.signUp(USER.username, USER.password);
-
-    // DemoBlaze shows an alert on successful signup
-    // page.once('dialog', async dialog => {
-    //   expect(dialog.message()).toContain('Sign up successful');
-    //   await dialog.accept();
-    // });
   });
 
   test('TC02: User can log in and log out successfully', async ({ page }) => {

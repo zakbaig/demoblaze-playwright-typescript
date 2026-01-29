@@ -5,8 +5,7 @@
   "scripts": {
     "test": "npx playwright test --reporter=list,html",
     "test:headed": "npx playwright test --headed --reporter=list,html",
-    "test:debug": "npx playwright test --debug",
-    "report": "npx playwright show-report"
+    "test:debug": "npx playwright test --debug"
   },
   "dependencies": {},
   "devDependencies": {
