@@ -1,13 +1,10 @@
 {
   "name": "demoblaze-playwright-tests",
   "version": "1.0.0",
-  "description": "Automated functional tests for the Demoblaze e-commerce demo site using Playwright",
+  "description": "Functional UI automation for DemoBlaze using Playwright and TypeScript",
   "private": true,
   "scripts": {
     "test": "playwright test",
-    "test:headed": "playwright test --headed",
-    "test:ui": "playwright test --ui",
-    "test:report": "playwright show-report",
     "install:browsers": "playwright install"
   },
   "devDependencies": {
